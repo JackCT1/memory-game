@@ -52,6 +52,7 @@ const cardArray = [
 cardArray.sort(() => 0.5 - Math.random());
 
 const gridDisplay = document.querySelector("#grid");
+const resultDisplay = document.querySelector("#result");
 let cardsChosen = [];
 let cardsChosenIds = [];
 const cardMatches = [];
@@ -95,8 +96,14 @@ function checkForMatch() {
     cards[cardsChosenIds[1]].setAttribute("src", "images/blank.png");
     alert("Try again!");
   }
+  resultDisplay.innerHTML = cardMatches.length;
   cardsChosen = [];
   cardsChosenIds = [];
+
+  if (cardMatches.length === cardArray.length / 2) {
+    resultDisplay.innerHTML = "All!";
+    alert("Congratulations you found them all!");
+  }
 }
 
 createBoard();
