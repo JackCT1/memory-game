@@ -85,7 +85,9 @@ function checkForMatch() {
     cards[cardsChosenIds[1]].setAttribute("src", "images/white.png");
     cards[cardsChosenIds[0]].removeEventListener("click", flipCard);
     cards[cardsChosenIds[1]].removeEventListener("click", flipCard);
-    alert("You found a match!");
+    if (cardMatches.length !== cardArray.length / 2 - 1) {
+      alert("You found a match!");
+    }
     cardMatches.push(cardsChosen);
   } else if (cardsChosenIds[0] === cardsChosenIds[1]) {
     cards[cardsChosenIds[0]].setAttribute("src", "images/blank.png");
